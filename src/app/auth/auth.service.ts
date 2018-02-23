@@ -15,11 +15,15 @@ export class AuthService {
     .then(
        obj => {
          this.store.dispatch(new authActions.SignUpAction());
+         firebase.auth().currentUser.getToken()
+         .then(
+           (token: string) => {
+             this.store.dispatch(new authActions.SetTokenAction(token));
+           }
+         )
        }
     )
-    .catch(
-        error => console.log(error)
-    )
+    .catch( error => console.log(error) );
   }
 
   signinUser(email: string, password: string) {

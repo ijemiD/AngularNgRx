@@ -15,7 +15,7 @@ const initialState: State = {
   // username: '',
   // password: '',
   authenticated: false,
-  token: ''
+  token: null
 }
 
 export function authReducer(state= initialState, action: AuthActions.AuthActions) {
@@ -27,6 +27,11 @@ export function authReducer(state= initialState, action: AuthActions.AuthActions
           ...state,
           authenticated: true
       };
+    case AuthActions.SET_TOKEN:
+     return {
+       ...state,
+       token: action.payload
+     };
     case AuthActions.LOG_OUT:
       return {
        ...state,
