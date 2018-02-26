@@ -5,11 +5,18 @@ export const SIGN_IN = 'SIGNIN';
 export const SIGN_UP = 'SIGNUP';
 export const LOG_OUT = 'LOGOUT';
 export const SET_TOKEN = 'SETTOKEN';
+export const TRY_SIGNIN = 'TRY_SIGNIN';
 
 export class TrySignupAction implements Action {
          readonly type = TRY_SIGNUP;
 
     constructor(public payload: {username: string, password: string}) {}
+}
+
+export class TrySigninAction implements Action {
+  readonly type = TRY_SIGNIN;
+
+constructor(public payload: {username: string, password: string}) {}
 }
 
 export class SignInAction implements Action {
@@ -35,4 +42,5 @@ SetTokenAction |
 LogOutAction |
 SignUpAction |
 SignInAction |
-TrySignupAction;
+TrySignupAction |
+TrySigninAction;
